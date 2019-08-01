@@ -6,15 +6,13 @@ var connection = mysql.createConnection({
     port: 3306,
     user: "root",
     password: "password",
-    databse: "burgers_db"
+    mysql_native_password: "password",
+    database: "burgers_db"
 });
 
 // Make connection
 connection.connect(function(err) {
-    if (err) {
-        console.error("error connection: " + err.stack);
-        return;
-    }
+    if (err) throw err;
     console.log("connected as id " + connection.threadId);
 });
 

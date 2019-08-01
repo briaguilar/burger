@@ -1,5 +1,5 @@
 // Requiring connection.js
-var connection = require("../config/connection.js");
+var connection = require("./connection");
 
 // Object for SQL statement functions
 var orm = {
@@ -8,10 +8,8 @@ var orm = {
         var queryString = "SELECT * FROM " + tableInput + ";";
 
         connection.query(queryString, function(err, res) {
-            if (err) {
-                throw err;
-            }
-            cb(result);
+            if (err) throw err;
+            cb(res);
         });
     },
     // insertOne()
